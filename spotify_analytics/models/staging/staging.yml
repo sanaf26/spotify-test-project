@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: spotify
+    database: data-cbf-485811
+    schema: spotify_test_project
+    tables:
+      - name: spotify_tracks_raw
