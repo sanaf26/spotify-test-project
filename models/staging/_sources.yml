@@ -6,3 +6,10 @@ sources:
     schema: spotify_test_project
     tables:
       - name: spotify_tracks_raw
+
+models:
+  - name: stg_spotify_tracks
+    columns:
+      - name: track_id
+        tests:
+          - not_null
