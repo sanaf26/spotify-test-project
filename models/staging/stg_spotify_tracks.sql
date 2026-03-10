@@ -1,16 +1,16 @@
 select 
-track_id,
-track_name,
-track_genre as genre,
-album_name,
-artists,
-popularity,
-duration_ms,
-duration_ms / 60000 as duration_minutes,
-explicit,
+    track_id,
+    track_name,
+    track_genre as genre,
+    album_name,
+    artists,
+    popularity,
+    duration_ms,
+    ROUND(CAST(duration_ms AS FLOAT64) / 60000, 2) as duration_minutes,
+    explicit as is_explicit,
     danceability,
     energy,
-    key,
+    key as musical_key,
     loudness,
     mode,
     speechiness,
@@ -22,12 +22,3 @@ explicit,
     time_signature
 from {{ source('spotify', 'spotify_tracks_raw') }}
 where track_id is not null
-
-      - name: genre
-        tests:
-          - not_null
-
-      - name: is_explicit
-        tests:
-          - accepted_values:
-              values: [true, false]
