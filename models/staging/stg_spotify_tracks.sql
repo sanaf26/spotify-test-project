@@ -22,3 +22,12 @@ explicit,
     time_signature
 from {{ source('spotify', 'spotify_tracks_raw') }}
 where track_id is not null
+
+      - name: genre
+        tests:
+          - not_null
+
+      - name: is_explicit
+        tests:
+          - accepted_values:
+              values: [true, false]
