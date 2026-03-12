@@ -22,3 +22,9 @@ select
     time_signature
 from {{ source('spotify', 'spotify_tracks_raw') }}
 where track_id is not null
+
+ name: popularity
+        tests:
+          - not_null
+          - expression_is_true:
+              expression: "popularity >= 0 AND popularity <= 100"
