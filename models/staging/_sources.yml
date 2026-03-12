@@ -13,3 +13,11 @@ models:
       - name: track_id
         tests:
           - not_null
+
+      - name: genre
+        tests:
+          - not_null
+
+      - name: is_explicit
+        tests:
+          - not_null 
