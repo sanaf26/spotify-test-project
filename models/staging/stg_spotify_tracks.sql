@@ -6,7 +6,7 @@ select
     artists,
     popularity,
     duration_ms,
-    ROUND(CAST(duration_ms AS FLOAT64) / 60000, 2) as duration_minutes,
+    {{ ms_to_minutes('duration_ms', 2) }} as duration_minutes,     
     explicit as is_explicit,
     danceability,
     energy,
