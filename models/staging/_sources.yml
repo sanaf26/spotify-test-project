@@ -6,6 +6,10 @@ sources:
     schema: spotify_test_project
     tables:
       - name: spotify_tracks_raw
+        loaded_at_field: CURRENT_TIMESTAMP()
+        freshness:
+          warn_after: {count: 1, period: day}
+          error_after: {count: 2, period: day}
 
 models:
   - name: stg_spotify_tracks
@@ -20,4 +24,4 @@ models:
 
       - name: is_explicit
         tests:
-          - not_null 
+          - not_null
