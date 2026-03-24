@@ -13,3 +13,21 @@ models:
       - name: artist_name
         tests:
           - not_null
+
+  - name: artist_genre_performance
+    description: "Aggregated model showing artist performance by genre."
+
+    columns:
+      - name: artist_name
+        tests:
+          - not_null
+
+      - name: genre
+        tests:
+          - not_null
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - artist_name
+            - genre
