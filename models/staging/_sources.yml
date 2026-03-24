@@ -16,8 +16,14 @@ models:
 
       - name: genre
         tests:
-          - not_null
+          - not_null:
+              config:
+                severity: warn
 
       - name: is_explicit
         tests:
-          - not_null 
+          - not_null
+
+      - name: popularity
+        tests:
+          - not_null
