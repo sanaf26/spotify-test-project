@@ -1,3 +1,24 @@
+# Spotify dbt Project
+
+This is a test dbt project I built while on the Data Sponsorship programme with Coding Black Females.
+
+## What this project includes
+- Building staging, intermediate, and mart models using dbt
+- Creating pull requests for:
+  - Data quality tests (not_null, relationships, uniqueness)
+  - Custom SQL tests for business logic
+  - Source freshness checks
+  - Test severity configuration (warn vs error)
+
+## Purpose
+The goal of this project is to practice dbt fundamentals, including modelling, testing, and working with Git through PRs.
+
+## How to run
+```bash
+dbt run
+dbt test
+dbt source freshness
+```
 Welcome to your new dbt project!
 
 ### Using the starter project
